@@ -1,5 +1,7 @@
 #Diamond game
 
+"este script esta basado en el trabajo de Peter Norvig en su GitHub Pytudes"
+
 # Estás jugando un juego en el que un comerciante tiene un lote de bolsas a la venta. 
 # Cada bolsa contiene un número desconocido de diamantes. 
 # Puedes comprar una bolsa seleccionada al azar por 12 monedas, mirar dentro de la bolsa 
@@ -407,9 +409,9 @@ def plot_strategy(P: ProbDist, strategy):
     points = [(c, d) for c in COINS for d in range(min(P), max(P) + 1) 
               if strategy(c, d) == 'sell']
     plt.scatter(*transpose(points), marker='.', label=strategy.__name__)
-    decorate(title=f'When to sell back with {strategy.__name__} strategy on {P}')
+    decorate(title=f'Cuando regresar la bolsa usado {strategy.__name__} estrategia con distribucion {P}')
     
-def decorate(title, xticks=COINS[::BUY], xlabel='coins', ylabel='diamonds'):
+def decorate(title, xticks=COINS[::BUY], xlabel='monedas', ylabel='diamantes'):
     """Decorate the plot with title, grid lines, ticks, and labels."""
     plt.grid(True); plt.xticks(xticks)
     plt.title(title); plt.xlabel(xlabel); plt.ylabel(ylabel)
